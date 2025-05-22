@@ -1,6 +1,6 @@
 ---
 - name: Installing Nginx on Slave1
-  hosts: Slave1
+  hosts: Slave2
   become: true
   tasks:
     - name: Install Nginx on Slave1
