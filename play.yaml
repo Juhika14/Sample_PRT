@@ -9,12 +9,4 @@
         state: latest
         update_cache: yes
 
-- name: Installing Apache2 on Slave2
-  hosts: Slave2
-  become: true
-  tasks:
-    - name: Install Apache2 on Slave2
-      apt:
-        name: apache2
-        state: latest
-        update_cache: yes
+
