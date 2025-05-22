@@ -1,11 +1,21 @@
 ---
-- name: Installing Nginx on Slave1
+- name: Install Nginx on Slave1
+  hosts: Slave1
+  become: true
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: latest
+        update_cache: yes
+
+- name: Install Apache2 on Slave2
   hosts: Slave2
   become: true
   tasks:
-    - name: Install Nginx on Slave1
+    - name: Install Apache2
       apt:
-        name: nginx
+        name: apache2
         state: latest
         update_cache: yes
 
