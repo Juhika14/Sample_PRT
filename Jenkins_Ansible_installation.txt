@@ -1,0 +1,18 @@
+#For Jenkins installation you need to install java as well
+#Create a a.sh script(instllation for Jenkins and Java)
+sudo nano a.sh
+sudo apt install openjdk-jdk-17 -y 
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian/jenkins.io-2023.key
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins -y
+
+For ansible installation follow:
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#pip-install
+
+
+
+
