@@ -1,20 +1,20 @@
-- name: Install Nginx on slave1
-  hosts: slave1
+- name: Install docker on slave1
+  hosts: 172.31.8.70
   become: true
   tasks:
-    - name: Installing Nginx
+    - name: Installing docker
       apt:
-        name: nginx
+        name: docker.io
         state: latest
         update_cache: yes
 
-- name: Install Apache2 on slave2
-  hosts: slave2
+- name: Install docker on slave2
+  hosts: 172.31.8.70
   become: true
   tasks:
-    - name: Install Apache2
+    - name: Install docker.io
       apt:
-        name: apache2
+        name: docker.io
         state: latest
         update_cache: yes
 
