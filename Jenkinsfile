@@ -11,20 +11,13 @@
 
         stage('Syntax Check') {
             steps {
-                ansiblePlaybook(
-                    installation: 'ansible',
-                    playbook: 'play.yaml',
-                    syntaxCheck: true
-                )
+                sh 'ansible-playbook -i /etc/ansible/hosts play.yaml --syntax-check'
             }
         }
 
         stage('Run Ansible Playbook') {
             steps {
-                ansiblePlaybook(
-                    installation: 'ansible',
-                    playbook: 'play.yaml'
-                )
+                sh 'ansible-playbook -i /etc/ansible/hosts play.yaml'
             }
         }
     }
