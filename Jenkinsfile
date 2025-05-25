@@ -4,20 +4,27 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', 
+                git branch: 'main',
                     url: 'https://github.com/Juhika14/Sample_PRT.git'
             }
         }
 
         stage('Syntax Check') {
             steps {
-                sh '/usr/bin/ansible-playbook play.yaml --syntax-check'
+                ansiblePlaybook(
+                    installation: 'ansible',
+                    playbook: 'play.yaml',
+                    syntaxCheck: true
+                )
             }
         }
 
         stage('Run Ansible Playbook') {
             steps {
-                sh '/usr/bin/ansible-playbook play.yaml'
+                ansiblePlaybook(
+                    installation: 'ansible',
+                    playbook: 'play.yaml'
+                )
             }
         }
     }
