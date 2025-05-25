@@ -1,5 +1,5 @@
 - name: Install docker on slave1
-  hosts: 172.31.8.70
+  hosts: slave1
   become: true
   tasks:
     - name: Installing docker
@@ -9,7 +9,7 @@
         update_cache: yes
 
 - name: Install docker on slave2
-  hosts: 172.31.8.70
+  hosts: slave2
   become: true
   tasks:
     - name: Install docker.io
