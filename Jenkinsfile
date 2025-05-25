@@ -1,19 +1,35 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
-        stage('Checkout Repository') {
+        stage('Clone Repository') {
+            agent any
             steps {
                 git branch: 'main',
                     url: 'https://github.com/Juhika14/Sample_PRT.git'
             }
         }
 
-        stage('Run Ansible Playbook') {
+        stage('Run Ansible Playbook on Slave1') {
+            agent { label 'slave1' }
             steps {
-                sh 'ansible-playbook /home/ubuntu/jenkins/workspace/Sample_PRT/play.yaml'
-            
+                script {
+                    def playbookPath = "${env.WORKSPACE}/play.yaml"
+                    def inventoryPath = "${env.WORKSPACE}/inventory.ini"
+                    sh "ansible-playbook ${playbookPath} -i ${inventoryPath}"
+                }
+            }
+        }
+
+        stage('Run Ansible Playbook on Slave2') {
+            agent { label 'slave2' }
+            steps {
+                script {
+                    def playbookPath = "${env.WORKSPACE}/play.yaml"
+                    def inventoryPath = "${env.WORKSPACE}/inventory.ini"
+                    sh "ansible-playbook ${playbookPath} -i ${inventoryPath}"
+                }
+            }
         }
     }
 }
-
