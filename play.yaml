@@ -1,5 +1,5 @@
-- name: Install Nginx on Slave1
-  hosts: Slave1
+- name: Install Nginx on slave1
+  hosts: slave1
   become: true
   tasks:
     - name: Installing Nginx
@@ -8,8 +8,8 @@
         state: latest
         update_cache: yes
 
-- name: Install Apache2 on Slave2
-  hosts: Slave2
+- name: Install Apache2 on slave2
+  hosts: slave2
   become: true
   tasks:
     - name: Install Apache2
