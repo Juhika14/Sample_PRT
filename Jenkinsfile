@@ -11,13 +11,13 @@ pipeline {
 
         stage('Syntax Check') {
             steps {
-                sh 'ansible-playbook play.yaml --syntax-check'
+                sh '/usr/bin/ansible-playbook play.yaml --syntax-check'
             }
         }
 
         stage('Run Ansible Playbook') {
             steps {
-                sh 'ansible-playbook play.yaml'
+                sh '/usr/bin/ansible-playbook play.yaml'
             }
         }
     }
