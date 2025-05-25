@@ -11,8 +11,8 @@ pipeline {
 
         stage('Run Ansible Playbook') {
             steps {
-                sh 'ansible-playbook -i /home/ubuntu/jenkins/workspace/Sample_PRT play.yaml'
-            }
+                sh 'ansible-playbook /home/ubuntu/jenkins/workspace/Sample_PRT/play.yaml'
+            
         }
     }
 }
