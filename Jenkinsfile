@@ -11,13 +11,13 @@
 
         stage('Syntax Check') {
             steps {
-                sh 'ansible-playbook -i /etc/ansible/hosts play.yaml --syntax-check'
+                sh 'ansible-playbook -i /home/ubuntu/jenkins/workspace/Sample_PRT/play.yaml --syntax-check'
             }
         }
 
         stage('Run Ansible Playbook') {
             steps {
-                sh 'ansible-playbook -i /etc/ansible/hosts play.yaml'
+                sh 'ansible-playbook -i /home/ubuntu/jenkins/workspace/Sample_PRT/play.yaml'
             }
         }
     }
