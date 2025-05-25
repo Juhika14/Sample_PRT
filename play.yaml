@@ -3,7 +3,7 @@
   hosts: Slave1
   become: true
   tasks:
-    - name: Install Nginx
+    - name: Installing Nginx
       apt:
         name: nginx
         state: latest
