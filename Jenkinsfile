@@ -11,7 +11,7 @@ pipeline {
         }
 
         stage('Run Ansible Playbook on Slave1') {
-            agent { label 'slave1' }
+            agent { label 'Apache' }
             steps {
                 script {
                     def playbookPath = "${env.WORKSPACE}/play.yaml"
@@ -22,7 +22,7 @@ pipeline {
         }
 
         stage('Run Ansible Playbook on Slave2') {
-            agent { label 'slave2' }
+            agent { label 'Nginx' }
             steps {
                 script {
                     def playbookPath = "${env.WORKSPACE}/play.yaml"
